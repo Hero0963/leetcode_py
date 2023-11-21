@@ -1,10 +1,3 @@
-# N: len(nums)
-# TC: O(N)
-# SC: O(1)
-# note:
-# nums.verse() costs O(1) SC
-# C++ supports next_permutation function
-
 class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         """
@@ -46,3 +39,11 @@ class Solution:
             nums[head], nums[tail] = nums[tail], nums[head]
             head += 1
             tail -= 1
+
+# N: len(nums)
+# TC: O(N)
+# SC: O(1)
+# note:
+# nums.reverse() costs O(1) SC
+# C++ supports next_permutation function
+# https://leetcode.cn/problems/next-permutation/solutions/479151/xia-yi-ge-pai-lie-by-leetcode-solution/

@@ -1,7 +1,3 @@
-# N: len(temperatures)
-# TC: O(N + N) , at most traverse twice (temperatures + stack)
-# SC: O(N)
-
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         n = len(temperatures)
@@ -24,10 +20,6 @@ class Solution:
 
         return ans
 
-
-"""
-other solutions:
-sol II. hash_map[T] = [d1, d2, d3,...]
-sol III. monotonic stack record an increasing [(i1, t1), (i2, t2), ...]
-for j in range(n), binary search the monotonic stack to find  next higher i, t
-"""
+# N: len(temperatures)
+# TC: O(N)
+# SC: O(N)

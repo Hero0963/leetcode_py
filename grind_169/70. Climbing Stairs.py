@@ -1,7 +1,3 @@
-# N: n
-# TC: O(N)
-# SC: O(1)
-
 class Solution:
     def climbStairs(self, n: int) -> int:
         if n < 3:
@@ -14,3 +10,7 @@ class Solution:
             pre = res
 
         return res
+
+# N: n
+# TC: O(N)
+# SC: O(1)

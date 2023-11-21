@@ -4,10 +4,6 @@
 #         self.val = val
 #         self.next = next
 
-# N: number of nodes in l1
-# M: number of nodes in l2
-# TC: O(N + M)
-# SC: O(N+ M)
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
@@ -46,18 +42,18 @@ class Solution:
         return x
 
 
+# N: number of nodes in l1
+# M: number of nodes in l2
+# TC: O(N + M)
+# SC: O(N+ M)
+
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
 
-
-# ref = leetcode sample code
-# N: number of nodes in l1
-# M: number of nodes in l2
-# TC: O(N + M)
-# SC: O(1)
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
@@ -78,3 +74,8 @@ class Solution:
             l2 = l2.next if l2 else None
 
         return dummy.next
+
+# N: number of nodes in l1
+# M: number of nodes in l2
+# TC: O(N + M)
+# SC: O(1)

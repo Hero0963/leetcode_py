@@ -1,11 +1,3 @@
-# N: len(strs)
-# M: max_leng of str in strs
-# TC: O(M * N)
-# since str[i] consists of lowercase English letters. sort counter_s TC = O(1)
-# note that len(str[i]) <= 100, cost of sorting str[i] is negligible
-# SC: O(N * M)
-
-
 import collections
 
 
@@ -33,6 +25,7 @@ class Solution:
 # N: len(strs)
 # M: max_leng of str in strs
 # TC: O(M * N)
+# since str[i] consists of lowercase English letters. sort counter_s TC = O(1)
 # note that len(str[i]) <= 100, cost of sorting str[i] is negligible
 # SC: O(N * M)
 
@@ -68,3 +61,9 @@ class Solution:
             # counter_s.clear()
 
         return ans
+
+# N: len(strs)
+# M: max_leng of str in strs
+# TC: O(M * N)
+# note that len(str[i]) <= 100, cost of sorting str[i] is negligible
+# SC: O(N * M)

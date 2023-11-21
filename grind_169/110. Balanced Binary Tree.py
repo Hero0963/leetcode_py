@@ -5,31 +5,25 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    """
-    H : depth of root
-    time complexity: O(2^H)
-    space complexity: O(1)
-
-    Constraints:
-
-    The number of nodes in the tree is in the range [0, 5000].
-    -10^4 <= Node.val <= 10^4
-
-    """
-
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        height_unbalanced = -1
+
         def get_height(node):
             if not node:
                 return 0
 
             l, r = get_height(node.left), get_height(node.right)
             if abs(l - r) > 1:
-                return -1
-            if l == -1 or r == -1:
-                return -1
+                return height_unbalanced
+            if l == height_unbalanced or r == height_unbalanced:
+                return height_unbalanced
 
             return 1 + max(l, r)
 
         res = get_height(root)
+        return res != height_unbalanced
 
-        return True if res >= 0 else False
+# N: number of tree nodes:
+# H: height of tree
+# TC: O(N)
+# SC: O(H)

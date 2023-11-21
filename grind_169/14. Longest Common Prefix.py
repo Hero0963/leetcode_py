@@ -1,10 +1,3 @@
-# ref = https://leetcode.com/problems/longest-common-prefix/solutions/6918/short-python-solution/
-
-# N: len(strs)
-# M: len(shortest_str)
-# TC: O(N + N*M)
-# SC: O(M), as return
-
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         n = len(strs)
@@ -17,14 +10,12 @@ class Solution:
 
         return shortest_str
 
-
-# ref = https://fuxuemingzhu.cn/leetcode/14.html#%E6%8E%92%E5%BA%8F
-
-
 # N: len(strs)
-# M: max_leng element in strs
-# TC: O(MNlogN + M)
-# SC: O(NM) for sort
+# M: len(shortest_str)
+# TC: O(N + N*M)
+# SC: O(M), as return
+# ref = https://leetcode.com/problems/longest-common-prefix/solutions/6918/short-python-solution/
+
 
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
@@ -35,3 +26,9 @@ class Solution:
             i += 1
 
         return strs[0][:i]
+
+# N: len(strs)
+# M: max_leng element in strs
+# TC: O(MNlogN + M)
+# SC: O(NM) for sort
+# ref = https://fuxuemingzhu.cn/leetcode/14.html#%E6%8E%92%E5%BA%8F

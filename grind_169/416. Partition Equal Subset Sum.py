@@ -1,10 +1,3 @@
-# ref = https://www.youtube.com/watch?v=FTrEHdKJzpc
-
-# N: len(nums)
-# M: target = _sum // 2
-# TC: O(MN)
-# SC: O(MN)
-
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         _sum = sum(nums)
@@ -32,3 +25,9 @@ class Solution:
                     return True
 
         return dp[-1][-1]
+
+# ref = https://www.youtube.com/watch?v=FTrEHdKJzpc
+# N: len(nums)
+# M: target = _sum // 2
+# TC: O(MN)
+# SC: O(MN)

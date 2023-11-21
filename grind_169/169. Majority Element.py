@@ -16,25 +16,26 @@ class Solution:
         return -1
 
 
-# https://ithelp.ithome.com.tw/articles/10245248
-# Boyer–Moore majority vote algorithm
-# N: len(nums)
-# TC: O(N)
-# SC: O(1)
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         goal = len(nums) // 2
-        cur_val, cur_max = -1, 1
+        candidate, count = 0, 1
         for v in nums:
-            if v == cur_val:
-                cur_max += 1
+            if v == candidate:
+                count += 1
             else:
-                cur_max -= 1
+                count -= 1
 
-            if cur_max > goal:
-                return cur_val
+            if count > goal:
+                return candidate
 
-            if cur_max == 0:
-                cur_val, cur_max = v, 1
+            if count == 0:
+                candidate, count = v, 1
 
-        return cur_val
+        return candidate
+
+# N: len(nums)
+# TC: O(N)
+# SC: O(1)
+# https://ithelp.ithome.com.tw/articles/10245248
+# Boyer–Moore majority vote algorithm

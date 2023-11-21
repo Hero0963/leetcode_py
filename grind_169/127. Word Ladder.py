@@ -1,12 +1,6 @@
 import collections
 
 
-# N: len(wordList)
-# M: len(beginWord)
-# TC: O(N * M * 26)
-# SC: O(N + N + N)
-
-
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         n = len(wordList)
@@ -28,9 +22,7 @@ class Solution:
         que.append(beginWord)
         seen[beginWord] = True
         while que:
-            # print("cnt = ", cnt)
             l = len(que)
-            # print("que = ", que)
             for _ in range(l):
                 word = que.popleft()
                 if word == endWord:
@@ -46,3 +38,8 @@ class Solution:
             cnt += 1
 
         return 0
+
+# N: len(wordList)
+# M: len(beginWord)
+# TC: O(N * M * 26)
+# SC: O(N + N + N)

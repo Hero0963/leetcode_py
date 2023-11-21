@@ -1,55 +1,27 @@
-# ref = https://leetcode.com/problems/flood-fill/solutions/109604/easy-python-dfs-no-need-for-visited/
-# note: There is a tricky case where the new color is the same as the original color and if the DFS is done on it, there will be an infinite loop.
+import collections
 
 
 class Solution:
-    """
-    N = len(image)
-    M = len(image[0])
-
-    time complexity: O(N * M)
-    space complexity: O(N * M)
-
-    Constraints:
-
-    m == image.length
-    n == image[i].length
-    1 <= m, n <= 50
-    0 <= image[i][j], color < 216
-    0 <= sr < m
-    0 <= sc < n
-
-    """
-
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-
         ori_color = image[sr][sc]
-        n = len(image)
-        m = len(image[0])
+        if ori_color == color:
+            return image
 
-        # visited = [[False for _ in range(m)] for _ in range(n) ]
-
-        def dfs(r: int, c: int):
-            # if visited[r][c]:
-            #     return
-
-            # visited[r][c] = True
-
-            if image[r][c] != ori_color:
-                return
-
-            image[r][c] = color
-
-            directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
-            for d in directions:
-                x, y = r + d[0], c + d[1]
-
-                if x < 0 or x >= n or y < 0 or y >= m:
-                    continue
-
-                dfs(x, y)
-
-        if ori_color != color:
-            dfs(sr, sc)
+        n, m = len(image), len(image[0])
+        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+        que = collections.deque()
+        que.append((sr, sc))
+        while que:
+            x, y = que.popleft()
+            image[x][y] = color
+            for dx, dy in directions:
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < n and 0 <= ny < m and image[nx][ny] == ori_color:
+                    que.append((nx, ny))
 
         return image
+
+# N: len(image)
+# M: len(image[0])
+# TC: O(N * M)
+# SC: O(N * M)

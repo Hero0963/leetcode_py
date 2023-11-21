@@ -1,30 +1,26 @@
-# ref = https://leetcode.com/problems/decode-string/solutions/941345/python-o-n-by-stack-w-comment/
-
-
-# N: len(s)
-# L: real length after decoded, L < 10^N
-# TC: O(L), need to decode each substring
-# SC: O(L)
-# similar to basic calculator
-
 class Solution:
     def decodeString(self, s: str) -> str:
         stack = []
-        cur_token, cur_number = "", 0
+        cur_string, cur_num = "", 0
 
-        for char in s:
-            if char == "[":
-                stack.append((cur_token, cur_number))
-                cur_token, cur_number = "", 0
+        for c in s:
+            if c == "[":
+                stack.append(((cur_string, cur_num)))
+                cur_string, cur_num = "", 0
 
-            elif char == "]":
-                prev_token, repeat_times = stack.pop()
-                cur_token = prev_token + repeat_times * cur_token
+            elif c == "]":
+                pre_string, repeat_times = stack.pop()
+                cur_string = pre_string + cur_string * repeat_times
 
-            elif char.isdigit():
-                cur_number = cur_number * 10 + int(char)
+            elif c.isdigit():
+                cur_num = cur_num * 10 + int(c)
 
             else:
-                cur_token += char
+                cur_string += c
 
-        return cur_token
+        return cur_string
+
+# N: len(s)
+# L: real length after decoding, L < 10^N
+# TC: O(L), need to decode each substring
+# SC: O(L)

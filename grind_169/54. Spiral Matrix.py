@@ -1,8 +1,3 @@
-# M, N = len(matrix), len(matrix[0])
-# TC: O(MN)
-# SC: O(MN), ans as return, remaining: O(1)
-
-
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         m, n = len(matrix), len(matrix[0])
@@ -16,7 +11,7 @@ class Solution:
         total = m * n
 
         while idx < total:
-            i, j = pos[0], pos[1]
+            i, j = pos
             ans[idx] = matrix[i][j]
             idx += 1
 
@@ -30,3 +25,6 @@ class Solution:
 
         return ans
 
+# M, N = len(matrix), len(matrix[0])
+# TC: O(MN)
+# SC: O(MN), ans as return, remaining: O(1)

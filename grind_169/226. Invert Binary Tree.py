@@ -5,28 +5,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    """
-    N: the number of leaf nodes
-    time complexity: O(N)
-    space complexity: O(1)
-
-    Constraints:
-    The number of nodes in the tree is in the range [0, 100].
-    -100 <= Node.val <= 100
-
-    Since invertTree returns invertTree, I choose to use a helper function instead of whe way of written self.invertTree
-    """
-
-    def invertTree(self, root: Optional[TreeNode]) -> Optional[invertTree]:
-        def helper(root):
-            if not root:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def helper(node):
+            if not node:
                 return
 
-            root.left, root.right = root.right, root.left
-            helper(root.left)
-            helper(root.right)
+            node.left, node.right = node.right, node.left
+            helper(node.left)
+            helper(node.right)
 
-        head = root
         helper(root)
+        return root
 
-        return head
+# N: number of tree nodes
+# L: level of tree nodes
+# TC: O(N)
+# SC: O(L), worst case O(N) for unbalanced tree

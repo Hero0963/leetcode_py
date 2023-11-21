@@ -5,9 +5,6 @@
 #         self.left = left
 #         self.right = right
 
-# N: number of nodes
-# TC: O(N)
-# SC: O(log_2(N)), recursive stack
 
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
@@ -29,3 +26,7 @@ class Solution:
 
         helper(root)
         return self.ans
+
+# N: number of nodes
+# TC: O(N)
+# SC: O(N)

@@ -1,8 +1,3 @@
-# N: len(nums)
-# TC: O(N)
-# SC: O(1)
-
-
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
         """
@@ -24,6 +19,11 @@ class Solution:
         reverse_array(nums, 0, n - 1)
         reverse_array(nums, 0, k - 1)
         reverse_array(nums, k, n - 1)
+
+
+# N: len(nums)
+# TC: O(N)
+# SC: O(1)
 
 
 """

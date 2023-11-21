@@ -1,10 +1,6 @@
 import collections
 
 
-# N: len(nums)
-# TC: O(N)
-# SC: O(N)
-
 class Solution:
     def findMaxLength(self, nums: List[int]) -> int:
         ans = 0
@@ -24,3 +20,7 @@ class Solution:
                 record[prefix_diff] = i
 
         return ans
+
+# N: len(nums)
+# TC: O(N)
+# SC: O(N)

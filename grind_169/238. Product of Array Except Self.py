@@ -1,11 +1,7 @@
-# N: len(nums)
-# TC: O(N)
-# SC: O(1), no extra memory
-
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        res = [0] * n
+        res = [0 for _ in range(n)]
         product = 1
         for i in range(n):
             res[i] = product
@@ -17,3 +13,7 @@ class Solution:
             product *= nums[j]
 
         return res
+
+# N: len(nums)
+# TC: O(N)
+# SC: O(1), no extra memory

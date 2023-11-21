@@ -1,7 +1,3 @@
-# N: len(nums)
-# TC: O(N)
-# SC: O(1)
-
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         n = len(nums)
@@ -17,7 +13,8 @@ class Solution:
 
 # N: len(nums)
 # TC: O(N)
-# SC: O(N)
+# SC: O(1)
+
 
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
@@ -30,3 +27,7 @@ class Solution:
                 return False
 
         return True
+
+# N: len(nums)
+# TC: O(N)
+# SC: O(N)

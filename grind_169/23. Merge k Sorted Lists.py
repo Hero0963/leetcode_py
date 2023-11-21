@@ -1,14 +1,9 @@
-# ref = https://leetcode.com/problems/merge-k-sorted-lists/solutions/203549/python-solution/
-# N: total number of nodes
-# K: number of linkedlists
-# TC: O(N * logK)
-# SC: O(N + K)
-
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         n = len(lists)
@@ -30,3 +25,8 @@ class Solution:
                 heapq.heappush(heap, (lists[idx].val, idx))
 
         return head
+
+# N: total number of nodes
+# K: number of linkedlists
+# TC: O(N * logK)
+# SC: O(N + K)

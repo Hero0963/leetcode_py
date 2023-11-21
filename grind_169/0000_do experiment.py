@@ -1,3 +1,4 @@
-a = "a" + ""
-print(a)
-print(len(a))
+L = [1, 2, 3]
+L[10:] = [4]
+
+print(L)

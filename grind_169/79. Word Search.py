@@ -1,37 +1,35 @@
-# ref = https://fuxuemingzhu.cn/leetcode/79.html
-# N: len(board)
-# M: len(board[0])
-# L: len(word)
-# TC: O(NM*3^L), each element as starting point, at most walk L steps and each step has 3 diection choices
-# SC: O(L)
-
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        if not word:
-            return True
+        n, m, leng_word = len(board), len(board[0]), len(word)
 
-        n, m, l_goal = len(board), len(board[0]), len(word)
-
-        def helper(r, c, l):
-            if l == l_goal:
+        def dfs(r, c, l):
+            if l == leng_word:
                 return True
 
-            if r < 0 or r >= n or c < 0 or c >= m:
+            if not (0 <= r < n and 0 <= c < m):
                 return False
 
             if board[r][c] != word[l]:
                 return False
 
-            board[r][c], initial_char = "#", board[r][c]
-            flag = helper(r + 1, c, l + 1) or helper(r - 1, c, l + 1) or helper(r, c + 1, l + 1) or helper(r, c - 1,
-                                                                                                           l + 1)
+            ori_char = board[r][c]
+            board[r][c] = "#"
 
-            board[r][c] = initial_char
+            flag = dfs(r + 1, c, l + 1) or dfs(r - 1, c, l + 1) or dfs(r, c + 1, l + 1) or dfs(r, c - 1, l + 1)
+
+            board[r][c] = ori_char
             return flag
 
         for i in range(n):
             for j in range(m):
-                if helper(i, j, 0):
+                if dfs(i, j, 0):
                     return True
 
         return False
+
+# N: len(board)
+# M: len(board[0])
+# L: len(word)
+
+# TC: O(M * N * 3^(L-1))
+# SC: O(L)

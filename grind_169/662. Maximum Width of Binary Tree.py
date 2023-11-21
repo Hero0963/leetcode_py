@@ -8,11 +8,6 @@
 import collections
 
 
-# N: number of TreeNodes
-# L: level of Tree
-# TC: O(N)
-# SC: O(2^L)
-
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         que = collections.deque()
@@ -23,7 +18,6 @@ class Solution:
             l = len(que)
             _, left_idx = que[0]
             _, right_idx = que[-1]
-            # print("left_idx, right_idx ", left_idx, right_idx)
             res = max(res, right_idx - left_idx + 1)
             for _ in range(l):
                 node, idx = que.popleft()
@@ -33,3 +27,7 @@ class Solution:
                     que.append((node.right, idx * 2 + 2))
 
         return res
+
+# N: number of TreeNodes
+# TC: O(N)
+# SC: O(N)

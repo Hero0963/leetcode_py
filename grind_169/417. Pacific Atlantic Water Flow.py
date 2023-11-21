@@ -1,12 +1,3 @@
-# M: len(heights)
-# N: len(heights[0])
-# TC: O(MN)
-# SC: O(MN)
-
-
-import collections
-
-
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         m, n = len(heights), len(heights[0])
@@ -46,8 +37,10 @@ class Solution:
         for j in range(n):
             helper(m - 1, j, -1, atl_set)
 
-        # print("pac_set = ", pac_set)
-        # print("atl_set = ", atl_set)
-
         ans = [[x, y] for (x, y) in pac_set & atl_set]
         return ans
+
+# M: len(heights)
+# N: len(heights[0])
+# TC: O(MN)
+# SC: O(MN)

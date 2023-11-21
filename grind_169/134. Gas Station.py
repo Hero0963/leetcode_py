@@ -1,7 +1,3 @@
-# N: len(gas)
-# TC: O(N)
-# SC: O(1)
-
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
         n = len(gas)
@@ -22,3 +18,7 @@ class Solution:
             return start
 
         return -1
+
+# N: len(gas)
+# TC: O(N)
+# SC: O(1)

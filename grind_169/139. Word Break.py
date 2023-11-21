@@ -1,12 +1,5 @@
-# ref= https://blog.csdn.net/fuxuemingzhu/article/details/79368360
-
 from typing import List
 
-
-# N: len(s)
-# M: len(wordDict)
-# TC: O(M^2)
-# SC: O(M + N)
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
@@ -22,3 +15,9 @@ class Solution:
                     break
 
         return dp[-1]
+
+# N: len(s)
+# M: len(wordDict)
+# W: max_element in wordDict
+# TC: O(N * N)
+# SC: O(N + M*W)

@@ -6,33 +6,22 @@
 #         self.right = None
 
 class Solution:
-    """
-    N = depth of root
-    time complexity: O(N)
-    space complexity: O(1)
-
-    Constraints:
-
-    The number of nodes in the tree is in the range [2, 105].
-    -10^9 <= Node.val <= 10^9
-    All Node.val are unique.
-    p != q
-    p and q will exist in the BST.
-    """
-
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         if p.val > q.val:
             p, q = q, p
 
         node = root
         while node:
-            if p.val <= node.val <= q.val:
-                return node
-            elif node.val > q.val:
+            if node.val > q.val:
                 node = node.left
             elif node.val < p.val:
                 node = node.right
             else:
-                return root
+                break
 
-        return root
+        return node
+
+# N: number of tree nodes
+# L: level of tree
+# TC: O(L), worst case for O(N)
+# SC: O(1)

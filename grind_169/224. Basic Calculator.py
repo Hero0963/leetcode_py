@@ -1,8 +1,3 @@
-# # ref = https://fuxuemingzhu.cn/leetcode/224.html#%E6%A0%88
-# N: len(s)
-# TC: O(N)
-# SC: O(N)
-
 class Solution:
     def calculate(self, s: str) -> int:
         ans, num, sign = 0, 0, 1
@@ -28,3 +23,7 @@ class Solution:
 
         ans = ans + sign * num
         return ans
+
+# N: len(s)
+# TC: O(N)
+# SC: O(N)

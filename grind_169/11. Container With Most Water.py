@@ -1,8 +1,3 @@
-# N: len(height)
-# TC: O(N)
-# SC: O(1)
-
-
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         head, tail = 0, len(height) - 1
@@ -20,3 +15,7 @@ class Solution:
                 tail -= 1
 
         return ans
+
+# N: len(height)
+# TC: O(N)
+# SC: O(1)

@@ -6,11 +6,6 @@
 #         self.right = right
 
 
-# N: number of nodes
-# TC: O(N)
-# SC: O(N), # worst case for recursive stack
-
-
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
         self.res = []
@@ -25,15 +20,13 @@ class Solution:
             if not node.left and not node.right and cur_sum == targetSum:
                 self.res.append(cur_path[:])
 
-                cur_path.pop()
-                return
-
             helper(node.left, cur_sum, cur_path)
             helper(node.right, cur_sum, cur_path)
-
             cur_path.pop()
-            return
 
         helper(root, 0, [])
-
         return self.res
+
+# N: number of nodes
+# TC: O(N * N), (path = N) * (append path to ans = N)
+# SC: O(N), # worst case for recursive stack

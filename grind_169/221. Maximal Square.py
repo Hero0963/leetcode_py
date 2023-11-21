@@ -1,9 +1,3 @@
-# M: len(matrix)
-# N: len(matrix[0])
-# TC: O(MN)
-# SC: O(MN)
-
-
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
         m, n = len(matrix), len(matrix[0])
@@ -25,3 +19,9 @@ class Solution:
                 max_side_leng = max(max_side_leng, dp[i][j])
 
         return max_side_leng * max_side_leng
+
+# M: len(matrix)
+# N: len(matrix[0])
+# TC: O(MN)
+# SC: O(MN)
+# see https://leetcode.cn/problems/maximal-square/solutions/44586/li-jie-san-zhe-qu-zui-xiao-1-by-lzhlyle/

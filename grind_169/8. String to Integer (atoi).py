@@ -1,33 +1,3 @@
-# N: len(s)
-# TC: O(N)
-# SC: O(N)
-# the pattern is ^[+-]?\d+ which means that it will match any string
-# that starts with an optional sign (+/-) followed by one or more digits.
-class Solution:
-    def myAtoi(self, s: str) -> int:
-        s = s.strip()
-        if not s:
-            return 0
-        ans = re.findall(r"^[+-]?\d+", s)
-        # the pattern is ^[+-]?\d+ which means that it will match any string
-        # that starts with an optional sign (+/-) followed by one or more digits.
-        if not ans:
-            return 0
-
-        ans = int(ans[0])
-        ans = min(ans, 2 ** 31 - 1)
-        ans = max(ans, -(2 ** 31))
-
-        return ans
-
-
-# ref = https://leetcode.com/problems/string-to-integer-atoi/solutions/1510014/python-simple-solution-without-strip-beats-95/
-
-
-# N: len(s)
-# TC: O(N)
-# SC: O(1)
-
 class Solution:
     def myAtoi(self, s: str) -> int:
         if not s:
@@ -61,3 +31,32 @@ class Solution:
         ans = min(ans, 2 ** 31 - 1)
         ans = max(ans, -(2 ** 31))
         return ans
+
+
+# N: len(s)
+# TC: O(N)
+# SC: O(1)
+
+
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        s = s.strip()
+        if not s:
+            return 0
+        ans = re.findall(r"^[+-]?\d+", s)
+        # the pattern is ^[+-]?\d+ which means that it will match any string
+        # that starts with an optional sign (+/-) followed by one or more digits.
+        if not ans:
+            return 0
+
+        ans = int(ans[0])
+        ans = min(ans, 2 ** 31 - 1)
+        ans = max(ans, -(2 ** 31))
+
+        return ans
+
+# N: len(s)
+# TC: O(N)
+# SC: O(N)
+# the pattern is ^[+-]?\d+ which means that it will match any string
+# that starts with an optional sign (+/-) followed by one or more digits.

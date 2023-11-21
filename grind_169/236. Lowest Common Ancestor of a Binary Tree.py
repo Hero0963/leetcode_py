@@ -5,28 +5,20 @@
 #         self.left = None
 #         self.right = None
 
-# N: number of nodes in TreeNode
-# TC: O(N)
-# SC: O(1)
-
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        self.ans = None
+        if not root:
+            return None
+        if root.val == p.val or root.val == q.val:
+            return root
 
-        def helper(node: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> int:
-            if not node:
-                return 0
+        l = self.lowestCommonAncestor(root.left, p, q)
+        r = self.lowestCommonAncestor(root.right, p, q)
+        if l and r:
+            return root
 
-            cnt = 0
-            if node == p or node == q:
-                cnt += 1
+        return l if l else r
 
-            cnt += helper(node.left, p, q) + helper(node.right, p, q)
-            if cnt == 2 and self.ans == None:
-                self.ans = node
-
-            return cnt
-
-        _ = helper(root, p, q)
-
-        return self.ans
+# N: number of tree nodes
+# TC: O(N)
+# SC: O(N)

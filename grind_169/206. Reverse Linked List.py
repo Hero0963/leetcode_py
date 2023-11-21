@@ -3,16 +3,10 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-
-# N: number of nodes
-# TC: O(N)
-# SC: O(1)
-
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         rev = None
         node = head
-
         while node:
             nxt = node.next
             node.next = rev
@@ -20,3 +14,8 @@ class Solution:
             node = nxt
 
         return rev
+
+
+# N: number of nodes
+# TC: O(N)
+# SC: O(1)

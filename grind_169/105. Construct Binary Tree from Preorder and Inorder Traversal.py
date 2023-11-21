@@ -1,6 +1,3 @@
-# by @netotz
-# https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/34579/python-short-recursive-solution/
-
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -8,10 +5,6 @@
 #         self.left = left
 #         self.right = right
 
-
-# N: len(inorder)
-# TC: O(N)
-# SC: O(N)
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
@@ -37,3 +30,9 @@ class Solution:
 
         root = helper(0, n - 1)
         return root
+
+# N: len(inorder)
+# TC: O(N)
+# SC: O(N)
+# by @netotz
+# https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/34579/python-short-recursive-solution/

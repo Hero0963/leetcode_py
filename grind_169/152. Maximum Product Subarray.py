@@ -1,8 +1,3 @@
-# variant of #53. Maximum Subarray, Kadane's algorithm
-# N: len(nums)
-# TC: O(N)
-# SC: O(1)
-
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         n = len(nums)
@@ -17,3 +12,8 @@ class Solution:
             ans = max(ans, cur_max)
 
         return ans
+
+# variant of #53. Maximum Subarray, Kadane's algorithm
+# N: len(nums)
+# TC: O(N)
+# SC: O(1)

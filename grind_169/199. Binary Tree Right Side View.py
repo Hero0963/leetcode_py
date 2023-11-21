@@ -1,41 +1,3 @@
-# N: number of treenode
-# TC: O(N)
-# SC: O(N)
-
-class Solution:
-    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
-        ans = []
-
-        cur_level = []
-        cur_level.append(root)
-        while True:
-            l = len(cur_level)
-            nxt_level = []
-            saw_it = False
-            for _ in range(l):
-                node = cur_level.pop()
-
-                if not node:
-                    continue
-
-                if not saw_it:
-                    ans.append(node.val)
-                    saw_it = True
-
-                nxt_level.append(node.right)
-                nxt_level.append(node.left)
-
-            cur_level = nxt_level[::-1]
-            if not cur_level:
-                break
-
-        return ans
-
-
-# N: number of treenode
-# TC: O(N)
-# SC: O(N)
-
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         ans = []
@@ -58,3 +20,7 @@ class Solution:
             ans.append(node.val)
 
         return ans
+
+# N: number of treenode
+# TC: O(N)
+# SC: O(N)

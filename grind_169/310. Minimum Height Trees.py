@@ -1,12 +1,3 @@
-# ref = https://fuxuemingzhu.cn/leetcode/310.html#bfs
-# ref = https://github.com/wisdompeak/LeetCode/blob/master/BFS/310.Minimum-Height-Trees/310.Minimum-Height-Trees.py
-
-
-# N: n
-# M: len(edges)
-# TC: O(M)
-# SC: O(N + M)
-
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
         if n == 1:
@@ -42,3 +33,8 @@ class Solution:
             if cnt + len(que) == n:
                 ans = list(que)
                 return ans
+
+# N: n
+# M: len(edges)
+# TC: O(M)
+# SC: O(N + M)

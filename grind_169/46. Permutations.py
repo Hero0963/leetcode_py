@@ -1,23 +1,28 @@
-# N: len(nums)
-# TC: O(N!)
-# SC: O(N!)
+import copy
+
+
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         n = len(nums)
-        ans = []
+        self.ans = []
+        path = [0 for _ in range(n)]
+        is_used = [False for _ in range(n)]
 
-        visited = [False] * n
-
-        def dfs(path):
-            if len(path) == n:
-                ans.append(path)
+        def dfs(i: int):
+            if i == n:
+                self.ans.append(copy.deepcopy(path))
                 return
 
-            for i in range(n):
-                if not visited[i]:
-                    visited[i] = True
-                    dfs(path + [nums[i]])
-                    visited[i] = False
+            for j in range(n):
+                if not is_used[j]:
+                    path[i] = nums[j]
+                    is_used[j] = True
+                    dfs(i + 1)
+                    is_used[j] = False
 
-        dfs([])
-        return ans
+        dfs(0)
+        return self.ans
+
+# N: len(nums)
+# TC: O(N x N!)
+# SC: O(N!), if consider ans, else O(N)

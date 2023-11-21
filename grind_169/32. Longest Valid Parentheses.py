@@ -1,7 +1,3 @@
-# N: len(s)
-# TC: O(N)
-# SC: O(1)
-
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
         ans = 0
@@ -32,3 +28,7 @@ class Solution:
                 left, right = 0, 0
 
         return ans
+
+# N: len(s)
+# TC: O(N)
+# SC: O(1)

@@ -1,8 +1,3 @@
-# N: len(candidates)
-# M: val of target
-# TC: O(N^M)
-# SC: O(M^2)
-
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         candidates.sort()
@@ -10,13 +5,20 @@ class Solution:
         self.dfs(candidates, target, 0, [])
         return self.ans
 
-    def dfs(self, nums, target, index, path):
-        if target == 0:
-            self.ans.append(path)
+    def dfs(self, nums: List[int], rem: int, idx: int, pick: List[int]):
+        if rem == 0:
+            self.ans.append(pick)
             return
 
-        for i in range(index, len(nums)):
-            if nums[i] > target:
+        for i in range(idx, len(nums)):
+            val = nums[i]
+            if val > rem:
                 return
+            else:
+                self.dfs(nums, rem - nums[i], i, pick + [val])
 
-            self.dfs(nums, target - nums[i], i, path + [nums[i]])
+# N: len(candidates)
+# T: target
+# TC: O(NlogN + N * 2^N )
+# SC: O(T), excluding ans
+# complexity analysis check: https://leetcode.cn/problems/combination-sum/solutions/406516/zu-he-zong-he-by-leetcode-solution/

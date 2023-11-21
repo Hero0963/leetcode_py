@@ -1,43 +1,45 @@
-# M: len(grid)
-# N: len(grid[0])
-# TC: O(MN)
-# SC: O(MN)
+import collections
+
 
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
-        m, n = len(grid), len(grid[0])
+        empty_cell = 0
+        fresh_orange = 1
+        rotten_orange = 2
 
+        m, n = len(grid), len(grid[0])
         que = collections.deque()
         fresh_cnt = 0
         for i in range(m):
             for j in range(n):
-                if grid[i][j] == 2:
-                    que.append([i, j])
-                if grid[i][j] == 1:
+                cell = grid[i][j]
+                if cell == rotten_orange:
+                    que.append((i, j))
+                if cell == fresh_orange:
                     fresh_cnt += 1
 
-        minutes = 0
-        direction_vectors = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+        if not fresh_cnt:
+            return 0
+
+        minutes = -1
+        direction_vectors = [(0, 1), (0, -1), (1, 0), (-1, 0)]
         while que:
+            minutes += 1
             l = len(que)
             for _ in range(l):
                 x, y = que.popleft()
-                for d in direction_vectors:
-                    new_x, new_y = x + d[0], y + d[1]
-                    if 0 <= new_x < m and 0 <= new_y < n:
-                        if grid[new_x][new_y] == 1:
-                            que.append([new_x, new_y])
-                            grid[new_x][new_y] = 2
+                for dx, dy in direction_vectors:
+                    nx, ny = x + dx, y + dy
+                    if 0 <= nx < m and 0 <= ny < n:
+                        next_cell = grid[nx][ny]
+                        if next_cell == fresh_orange:
+                            que.append((nx, ny))
+                            grid[nx][ny] = rotten_orange
                             fresh_cnt -= 1
 
-            minutes += 1
+        return minutes if not fresh_cnt else -1
 
-        if fresh_cnt:
-            return -1
-
-        return max(0, minutes - 1)
-
-
-
-
-
+# M: len(grid)
+# N: len(grid[0])
+# TC: O(MN)
+# SC: O(MN)

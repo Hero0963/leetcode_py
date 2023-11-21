@@ -5,10 +5,6 @@
 #         self.next = next
 
 
-# N: number of nodes
-# TC: O(N)
-# SC: O(N)
-
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         vals = []
@@ -28,17 +24,17 @@ class Solution:
         return True
 
 
+# N: number of nodes
+# TC: O(N)
+# SC: O(N)
+
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
 
-# ref = https://leetcode.com/problems/palindrome-linked-list/solutions/612914/python-go-o-1-aux-space-by-two-pointers-w-hint/
-
-# N: number of nodes
-# TC: O(N)
-# SC: O(1)
 
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
@@ -71,3 +67,8 @@ class Solution:
             cur = nxt
 
         return prev
+
+# N: number of nodes
+# TC: O(N)
+# SC: O(1)
+# ref = https://leetcode.com/problems/palindrome-linked-list/solutions/612914/python-go-o-1-aux-space-by-two-pointers-w-hint/

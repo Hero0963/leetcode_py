@@ -5,12 +5,12 @@
 #         self.left = left
 #         self.right = right
 
-# N: number of nodes
-# TC: O(N)
-# SC: O(1)
+from typing import Optional
+
+
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def helper(node, lower_bound, upper_bound):
+        def helper(node: Optional[TreeNode], lower_bound: int = float("-inf"), upper_bound: int = float("inf")) -> bool:
             if not node:
                 return True
 
@@ -20,3 +20,7 @@ class Solution:
             return helper(node.left, lower_bound, node.val) and helper(node.right, node.val, upper_bound)
 
         return helper(root, float("-inf"), float("inf"))
+
+# N: number of tree nodes
+# TC: O(N)
+# SC: O(N)

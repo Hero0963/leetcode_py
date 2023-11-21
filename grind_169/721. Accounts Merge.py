@@ -1,14 +1,3 @@
-"""
-Complexity Analysis
-by leetcode Solution
-Approach 2: Disjoint Set Union (DSU)
-Here N is the number of accounts and K is the maximum length of an account.
-Time complexity: O(NK⋅logNK+NK⋅α(N)).
-Space complexity: O(NK)O(NK)O(NK)
-"""
-
-
-# ref = https://leetcode.com/problems/accounts-merge/solutions/109186/python-union-find-with-path-compression-and-building-disjoint-set-on-the-fly/
 class Solution:
     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
         n = len(accounts)
@@ -37,3 +26,8 @@ class Solution:
             merged_accounts[find(i)].update(account[1:])
 
         return [[accounts[i][0]] + sorted(emails) for i, emails in merged_accounts.items()]
+
+# N: len(accounts)
+# TC: O(NlogN)
+# SC: O(N)
+# note: https://leetcode.cn/problems/accounts-merge/solutions/564305/zhang-hu-he-bing-by-leetcode-solution-3dyq/

@@ -1,7 +1,3 @@
-# N: len(height)
-# TC: O(N)
-# SC: O(1)
-
 class Solution:
     def trap(self, height: List[int]) -> int:
         left, right = 0, len(height) - 1
@@ -24,3 +20,6 @@ class Solution:
 
         return area
 
+# N: len(height)
+# TC: O(N)
+# SC: O(1)

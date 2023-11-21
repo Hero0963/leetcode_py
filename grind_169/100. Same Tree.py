@@ -5,10 +5,6 @@
 #         self.left = left
 #         self.right = right
 
-# N: number of TreeNodes
-# TC: O(N)
-# SC: O(N), worst case for unbalanced tree
-
 
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
@@ -22,3 +18,7 @@ class Solution:
             return False
 
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+
+# N: number of TreeNodes
+# TC: O(N)
+# SC: O(N)

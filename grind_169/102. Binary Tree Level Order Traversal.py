@@ -4,58 +4,28 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
-# N: the number of nodes
-# TC: O(N)
-# SC: O(N)
-import collections
-
-
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         self.res = []
-
-        def helper(node, level):
-            if not node:
-                return
-
-            if len(self.res) <= level:
-                self.res.append([node.val])
-            else:
-                self.res[level].append(node.val)
-
-            helper(node.left, level + 1)
-            helper(node.right, level + 1)
-
-        helper(root, 0)
-
-        return self.res
-
-
-
-
-# N: the number of nodes
-# TC: O(N)
-# SC: O(N)
-class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        self.res = []
-
         if not root:
             return self.res
 
-        q = collections.deque()
-        q.append(root)
-        while q:
+        que = collections.deque()
+        que.append(root)
+        while que:
             cur_level = []
-            for _ in range(len(q)):
-                node = q.popleft()
+            for _ in range(len(que)):
+                node = que.popleft()
                 cur_level.append(node.val)
                 if node.left:
-                    q.append(node.left)
+                    que.append(node.left)
                 if node.right:
-                    q.append(node.right)
+                    que.append(node.right)
 
             self.res.append(cur_level)
 
         return self.res
+
+# N: number of tree nodes
+# TC: O(N)
+# SC: O(N)

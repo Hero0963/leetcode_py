@@ -1,17 +1,11 @@
-# N: len(asteroids)
-# TC: O(N)
-# SC: O(N)
-
-
 class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        ans = []
         stack = []
-        res = []
         for x in asteroids:
             if x > 0:
                 stack.append(x)
-
-            if x < 0:
+            elif x < 0:
                 result = x
                 while stack:
                     y = stack.pop()
@@ -25,9 +19,11 @@ class Solution:
                         pass
 
                 if not stack and result < 0:
-                    res.append(x)
+                    ans.append(x)
 
-        if stack:
-            res += stack
+        ans += stack
+        return ans
 
-        return res
+# N: len(asteroids)
+# TC: O(N)
+# SC: O(N)

@@ -1,5 +1,3 @@
-# learned from internet
-
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         m, n = len(nums1), len(nums2)
@@ -28,3 +26,6 @@ class Solution:
                 high = partition_x - 1
             else:
                 low = partition_x + 1
+
+# learned from internet
+# https://leetcode.cn/problems/median-of-two-sorted-arrays/solutions/258842/xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-s-114/

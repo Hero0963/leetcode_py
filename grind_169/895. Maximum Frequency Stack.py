@@ -1,8 +1,6 @@
 import collections
 
 
-# needless to update self.freq[freq -1]
-
 class FreqStack:
 
     def __init__(self):
@@ -27,36 +25,9 @@ class FreqStack:
 
         return res
 
-
 # Your FreqStack object will be instantiated and called as such:
 # obj = FreqStack()
 # obj.push(val)
 # param_2 = obj.pop()
 
-
-import collections
-
-
-# ref = https://fuxuemingzhu.cn/leetcode/895.html#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0
-
-class FreqStack:
-
-    def __init__(self):
-        self.m = collections.defaultdict(int)
-        self.q = []
-        self.index = 0
-
-    def push(self, x: int) -> None:
-        self.m[x] += 1
-        heapq.heappush(self.q, (-self.m[x], -self.index, x))
-        self.index += 1
-
-    def pop(self) -> int:
-        val = heapq.heappop(self.q)[2]
-        self.m[val] -= 1
-        return val
-
-# Your FreqStack object will be instantiated and called as such:
-# obj = FreqStack()
-# obj.push(val)
-# param_2 = obj.pop()
+# needless to update self.freq[freq -1]

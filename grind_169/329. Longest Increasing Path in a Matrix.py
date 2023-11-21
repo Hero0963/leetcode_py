@@ -1,13 +1,3 @@
-# ref = https://leetcode.com/problems/longest-increasing-path-in-a-matrix/solutions/2052360/python-beginner-friendly-recursion-to-dp-intuition-explained/
-
-
-# M: len(matrix)
-# N: len(matrix[0])
-# TC: O(MN)
-# SC: O(MN)
-
-# note that it can be solved by Topological Sort
-
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
         m, n = len(matrix), len(matrix[0])
@@ -39,3 +29,7 @@ class Solution:
 
         return ans
 
+# M: len(matrix)
+# N: len(matrix[0])
+# TC: O(MN)
+# SC: O(MN)

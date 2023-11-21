@@ -1,84 +1,42 @@
 import collections
 
 
-# N: len(digits)
-# TC: O(N)
-# SC: O(N)
-
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         if not digits:
             return []
 
-        self.ans = [""]
-        hash_map = collections.defaultdict(list)
-        hash_map["2"] = ["a", "b", "c"]
-        hash_map["3"] = ["d", "e", "f"]
-        hash_map["4"] = ["g", "h", "i"]
-        hash_map["5"] = ["j", "k", "l"]
-        hash_map["6"] = ["m", "n", "o"]
-        hash_map["7"] = ["p", "q", "r", "s"]
-        hash_map["8"] = ["t", "u", "v"]
-        hash_map["9"] = ["w", "x", "y", "z"]
+        digit_to_letters = collections.defaultdict(str)
+        digit_to_letters["2"] = "abc"
+        digit_to_letters["3"] = "def"
+        digit_to_letters["4"] = "ghi"
+        digit_to_letters["5"] = "jkl"
+        digit_to_letters["6"] = "mno"
+        digit_to_letters["7"] = "pqrs"
+        digit_to_letters["8"] = "tuv"
+        digit_to_letters["9"] = "wxyz"
 
         n = len(digits)
+        self.ans = []
+        self.comb = []
 
-        def helper(letters):
-            if len(self.ans[0]) == n:
-                return
-
-            new_ans = []
-            for letter in letters:
-                for s in self.ans:
-                    new_ans.append(s + letter)
-
-            self.ans = new_ans
-
-        for num in digits:
-            letters = hash_map[num]
-            helper(letters)
-
-        return self.ans
-
-
-import collections
-
-
-# N: len(digits)
-# TC: O(N)
-# SC: O(N)
-
-class Solution:
-    def letterCombinations(self, digits: str) -> List[str]:
-        if not digits:
-            return []
-
-        self.ans = [""]
-        hash_map = collections.defaultdict(list)
-        hash_map["2"] = ["a", "b", "c"]
-        hash_map["3"] = ["d", "e", "f"]
-        hash_map["4"] = ["g", "h", "i"]
-        hash_map["5"] = ["j", "k", "l"]
-        hash_map["6"] = ["m", "n", "o"]
-        hash_map["7"] = ["p", "q", "r", "s"]
-        hash_map["8"] = ["t", "u", "v"]
-        hash_map["9"] = ["w", "x", "y", "z"]
-
-        n = len(digits)
-
-        def helper(i):
+        def backtrack(i):
             if i == n:
+                self.ans.append("".join(self.comb))
                 return
 
-            new_ans = []
             num = digits[i]
-            letters = hash_map[num]
+            letters = digit_to_letters[num]
             for letter in letters:
-                for s in self.ans:
-                    new_ans.append(s + letter)
+                self.comb.append(letter)
+                backtrack(i + 1)
+                self.comb.pop()
 
-            self.ans = new_ans
-            helper(i + 1)
-
-        helper(0)
+        backtrack(0)
         return self.ans
+
+# N: # of d in "234568" as input
+# M: # of d in "79" as input
+# Let L = N + M
+# TC: O(3^N*4^M) <= O(4^L)
+# SC: O(N + M) = O(L)

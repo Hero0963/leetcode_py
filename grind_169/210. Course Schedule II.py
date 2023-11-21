@@ -1,11 +1,6 @@
 import collections
 
 
-# N: numCourses
-# M: len(prerequisites)
-# TC: O(M + N + M)
-# SC: O(M + N)
-
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         g = collections.defaultdict(list)
@@ -34,3 +29,8 @@ class Solution:
             return []
 
         return res
+
+# N: numCourses
+# M: len(prerequisites), M <= N^2
+# TC: O(M + N + M)
+# SC: O(M + N)

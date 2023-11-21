@@ -1,8 +1,3 @@
-# M: m
-# N: n
-# TC: O(MN)
-# SC: O(MN)
-
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         dp = [[1 for _ in range(n)] for _ in range(m)]
@@ -13,9 +8,10 @@ class Solution:
         return dp[-1][-1]
 
 
-# K : min(m, n)
-# TC: O(K)
-# SC: O(1)
+# M: m
+# N: n
+# TC: O(MN)
+# SC: O(MN)
 
 
 class Solution:
@@ -24,3 +20,7 @@ class Solution:
         b = min(m, n) - 1
         ans = math.comb(a, b)
         return ans
+
+# K : min(m, n)
+# TC: O(K)
+# SC: O(1)

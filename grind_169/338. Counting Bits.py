@@ -1,9 +1,3 @@
-# N: n
-# TC: O(N)
-# SC: O(N)
-# consider *2 in binary representation means shift
-# for i = odd case, it equals to previous one (i - 1) binary form + 1
-# Brian Kernighan's algorithm is also helpful
 class Solution:
     def countBits(self, n: int) -> List[int]:
         dp = [0] * (n + 1)
@@ -17,7 +11,9 @@ class Solution:
 
         return dp
 
-
-
-
-
+# N: n
+# TC: O(N)
+# SC: O(N)
+# consider *2 in binary representation means shift
+# for i = odd case, it equals to previous one (i - 1) binary form + 1
+# Brian Kernighan's algorithm is also helpful

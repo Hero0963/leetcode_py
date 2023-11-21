@@ -6,56 +6,36 @@ class Node:
         self.neighbors = neighbors if neighbors is not None else []
 """
 
-
-# TC: O(V + E)
-# SC: O(V + E)
-class Solution:
-    def cloneGraph(self, node: 'Node') -> 'Node':
-        node_copy = self.dfs(node, dict())
-        return node_copy
-
-    def dfs(self, node: 'Node', hash_map: dict) -> 'Node':
-        if not node:
-            return None
-
-        if node in hash_map:
-            return hash_map[node]
-
-        node_copy = Node(node.val, [])
-        hash_map[node] = node_copy
-
-        for n in node.neighbors:
-            n_copy = self.dfs(n, hash_map)
-            if n_copy:
-                node_copy.neighbors.append(n_copy)
-
-        return node_copy
-
-
 import collections
 
 
-# TC: O(V + E)
-# SC: O(V + E)
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         if not node:
-            return node
+            return None
 
-        que = collections.deque()
-        hash_map = dict()
-        que.append(node)
+
         node_copy = Node(node.val, [])
-        hash_map[node] = node_copy
+        seen = dict()
+        seen[node] = node_copy
 
+        que  = collections.deque()
+        que.append(node)
         while que:
-            q = que.popleft()
-            if not q:
+            cur_node = que.popleft()
+            if not cur_node:
                 continue
-            for n in q.neighbors:
-                if n not in hash_map:
-                    hash_map[n] = Node(n.val, [])
-                    que.append(n)
-                hash_map[q].neighbors.append(hash_map[n])
+
+            for neib in cur_node.neighbors:
+                if neib not in seen:
+                    neib_copy = Node(neib.val, [])
+                    seen[neib] = neib_copy
+                    que.append(neib)
+                seen[cur_node].neighbors.append(seen[neib])
 
         return node_copy
+
+
+# N: number of nodes
+# TC: O(N)
+# SC: O(N)

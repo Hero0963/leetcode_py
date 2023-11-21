@@ -5,11 +5,7 @@
 #         self.left = left
 #         self.right = right
 
-# ref = https://www.youtube.com/watch?v=UfPMw8zD8EY, treat each node as a inflection point
 
-# N: number of nodes
-# TC: O(N)
-# SC: O(1)
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         # if not root:
@@ -26,3 +22,8 @@ class Solution:
 
         _ = helper(root)
         return self._diam
+
+# N: number of tree nodes
+# TC: O(N)
+# SC: O(N)
+# ref = https://www.youtube.com/watch?v=UfPMw8zD8EY, treat each node as a inflection point

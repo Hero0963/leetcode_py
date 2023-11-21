@@ -1,83 +1,33 @@
-# N: len(s)
-# TC: O(N^2)
-# SC: O(1)
-
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         ans = ""
         n = len(s)
+        start, end, max_leng = 0, 0, 0
 
-        # odd
+        dp = [[False for _ in range(n)] for _ in range(n)]
         for i in range(n):
-            head, tail = i, i
-            while head >= 0 and tail < n:
-                if s[head] == s[tail]:
-                    head -= 1
-                    tail += 1
-                else:
-                    break
+            dp[i][i] = True
+            max_leng = 1
+            ans = s[i]
 
-            head += 1
-            tail -= 1
+        for i in range(n - 1):
+            if s[i] == s[i + 1]:
+                dp[i][i + 1] = True
+                max_leng = 2
+                ans = s[i: i + 1 + 1]
 
-            # if head < 0:
-            #     continue
-            cur_leng = tail - head + 1
-            if cur_leng > len(ans):
-                # print(ans, cur_leng, tail, head, s[head: tail + 1])
-                ans = s[head: tail + 1]
-
-        # even
-        for i in range(n):
-            head, tail = i, i + 1
-            while head >= 0 and tail < n:
-                if s[head] == s[tail]:
-                    head -= 1
-                    tail += 1
-                else:
-                    break
-
-            head += 1
-            tail -= 1
-
-            # if head < 0:
-            #     continue
-            cur_leng = tail - head + 1
-            if cur_leng > len(ans):
-                ans = s[head: tail + 1]
+        for j in range(n):
+            for i in range(0, j - 1):
+                if s[i] == s[j] and dp[i + 1][j - 1]:
+                    dp[i][j] = True
+                    cur_leng = j - i + 1
+                    if max_leng < cur_leng:
+                        ans = s[i: j + 1]
+                        max_leng = cur_leng
 
         return ans
 
-
-# ref = https://segmentfault.com/a/1190000003914228#articleHeader3
-# Manacher algorithm
 # N: len(s)
-# TC: O(N)
-# SC: O(N)
-
-class Solution:
-    def longestPalindrome(self, s: str) -> str:
-        if not s:
-            return ""
-
-        s = "$#" + "#".join(s) + "#@"
-        n = len(s)
-        dp = [0] * n
-        right, center = 0, 0
-
-        for i in range(1, n - 1):
-            if right > i:
-                dp[i] = min(right - i, dp[2 * center - i])
-
-            while s[i + (dp[i] + 1)] == s[i - (dp[i] + 1)]:
-                dp[i] += 1
-
-            if i + dp[i] > right:
-                center, right = i, i + dp[i]
-
-        max_radius, center_idx = max((r, i) for i, r in enumerate(dp))
-        ans = s[center_idx - max_radius: center_idx + max_radius + 1].replace("#", "")
-        return ans
-
-
-
+# TC: O(N^2)
+# SC: O(N^2)
+# key : if s[i] == s[j] and dp[i + 1][j - 1]:

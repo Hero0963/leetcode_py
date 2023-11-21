@@ -5,10 +5,6 @@
 #         self.next = next
 
 
-# N: number of nodes
-# TC: O(N)
-# SC: O(1)
-
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
@@ -38,3 +34,7 @@ class Solution:
         node.next = None
 
         return p.next
+
+# N: number of nodes
+# TC: O(N)
+# SC: O(1)
