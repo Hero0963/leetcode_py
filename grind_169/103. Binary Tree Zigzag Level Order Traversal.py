@@ -5,9 +5,6 @@
 #         self.left = left
 #         self.right = right
 
-# N: number of nodes:
-# TC: O(N)
-# SC: O(N)
 
 class Solution:
     def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
@@ -35,3 +32,8 @@ class Solution:
             cur_level += 1
 
         return res
+
+# N: number of nodes:
+# TC: O(N)
+# SC: O(N)
+# we may replace the reversing operation by reverse traversal
