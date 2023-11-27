@@ -1,13 +1,6 @@
 import collections
 
 
-# N: len(routes), here N is total bus
-# M: max_leng element in routes
-# S: total bus stop
-# TC: O(N * M + S * N)
-# SC: O(S * N)
-
-
 class Solution:
     def numBusesToDestination(self, routes: List[List[int]], source: int, target: int) -> int:
         if source == target:
@@ -34,3 +27,10 @@ class Solution:
                 routes[bus_idx] = []  # clear bus stop
 
         return -1
+
+# N: len(routes), here N is total bus
+# M: max_leng element in routes
+# S: total bus stop
+# TC: O(N * M + S * N)
+# SC: O(S * N)
+# ref = https://leetcode.com/problems/bus-routes/solutions/122771/c-java-python-bfs-solution/

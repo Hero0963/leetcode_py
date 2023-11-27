@@ -1,8 +1,3 @@
-# N: len(s)
-# TC: O(N)
-# SC: O(N)
-
-
 class Solution:
     def numDecodings(self, s: str) -> int:
         if s[0] == "0":
@@ -20,3 +15,7 @@ class Solution:
                 dp[i] += dp[i - 2] if i >= 2 else 1
 
         return dp[-1]
+
+# N: len(s)
+# TC: O(N)
+# SC: O(N)

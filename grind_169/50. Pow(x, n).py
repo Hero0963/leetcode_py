@@ -1,7 +1,3 @@
-# N: abs(n)
-# TC: O(logN)
-# SC: O(logN)
-
 class Solution:
     @cache
     def myPow(self, x: float, n: int) -> float:
@@ -16,3 +12,7 @@ class Solution:
             return half * half
         else:
             return x * half * half
+
+# N: abs(n)
+# TC: O(logN)
+# SC: O(logN)

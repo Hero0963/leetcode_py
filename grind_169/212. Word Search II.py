@@ -1,15 +1,4 @@
-# ref = https://leetcode.cn/problems/word-search-ii/solution/dan-ci-sou-suo-ii-by-leetcode-solution-7494/
-# 為了將 word 加入 ans，需要存 cur.is_word = True, cur.word = word
-
 import collections
-
-# M: len(board)
-# N: len(board[0])
-# L len(words)
-# K: max_leng of word in words
-
-# TC: (M * N * 3 ^ (K - 1))
-# SC: O(L * K)
 
 
 class MyTrie:
@@ -60,7 +49,10 @@ class Solution:
 
         return ans
 
-# 作者：LeetCode-Solution
-# 链接：https://leetcode.cn/problems/word-search-ii/solution/dan-ci-sou-suo-ii-by-leetcode-solution-7494/
-# 来源：力扣（LeetCode）
-# 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+# M: len(board)
+# N: len(board[0])
+# L len(words)
+# K: max_leng of word in words
+# TC: (M * N * 3 ^ (K - 1))
+# SC: O(L * K)
+# ref: https://leetcode.cn/problems/word-search-ii/solution/dan-ci-sou-suo-ii-by-leetcode-solution-7494/
