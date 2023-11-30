@@ -5,11 +5,6 @@
 #         self.next = next
 
 
-# N: number of nodes
-# TC: O(N)
-# SC: O(N)
-
-
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
         """
@@ -37,15 +32,16 @@ class Solution:
         record[pre].next = None
 
 
+# N: number of nodes
+# TC: O(N)
+# SC: O(N)
+
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-
-# N: number of nodes:
-# TC: O(N)
-# SC: O(1)
 
 
 class Solution:
@@ -89,3 +85,7 @@ class Solution:
 
             l2.next = l1
             l2 = l2_nxt
+
+# N: number of nodes:
+# TC: O(N)
+# SC: O(1)

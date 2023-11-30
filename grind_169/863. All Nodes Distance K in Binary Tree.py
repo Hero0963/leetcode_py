@@ -8,10 +8,6 @@
 import collections
 
 
-# N: number of nodes
-# TC: O(N)
-# SC: O(N)
-
 class Solution:
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
         graph = collections.defaultdict(list)
@@ -62,3 +58,7 @@ class Solution:
                 ans.append(node.val)
                 seen.add(node)
         return ans
+
+# N: number of nodes
+# TC: O(N)
+# SC: O(N)
