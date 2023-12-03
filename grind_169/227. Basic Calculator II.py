@@ -1,7 +1,3 @@
-# N: len(s)
-# TC: O(N)
-# SC: O(N)
-
 class Solution:
     def calculate(self, s: str) -> int:
         stack = []
@@ -30,3 +26,8 @@ class Solution:
                 pre_op = c
                 num = 0
         return sum(stack)
+
+# N: len(s)
+# TC: O(N)
+# SC: O(N)
+# ref = https://leetcode.cn/problems/basic-calculator-ii/solutions/648647/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/

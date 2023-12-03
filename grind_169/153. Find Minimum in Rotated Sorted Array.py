@@ -1,10 +1,3 @@
-# 有圖解 https://ithelp.ithome.com.tw/articles/10288610?sc=iThomeR
-# N: len(nums)
-# TC: O(logN)
-# SC: O(N)
-# note: right = mid 寫法較佳 ，因為 mid 仍有可能為答案
-# 但 right = mid -1 也可，因為 ans = min(ans, nums[mid]) 有更新過
-
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         n = len(nums)
@@ -18,3 +11,8 @@ class Solution:
             else:
                 left = mid + 1
         return ans
+
+# N: len(nums)
+# TC: O(logN)
+# ref = https://ithelp.ithome.com.tw/articles/10288610
+# ref = https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/solutions/698479/xun-zhao-xuan-zhuan-pai-xu-shu-zu-zhong-5irwp/

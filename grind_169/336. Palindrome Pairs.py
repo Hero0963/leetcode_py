@@ -1,14 +1,3 @@
-# N: len(words)
-# K: max(len(word)) for word in words
-# TC: O((N * K^2)
-# SC: O(NK)
-
-
-"""
-Return an array of all the palindrome pairs of words.  <-- any order ??
-You must write an algorithm with O(sum of words[i].length) runtime complexity. <-- maybe need trie
-
-"""
 class Solution:
     def palindromePairs(self, words: List[str]) -> List[List[int]]:
         d = {}
@@ -24,5 +13,10 @@ class Solution:
                 if postfix in d and i != d[postfix] and prefix == prefix[::-1]:
                     record.add((d[postfix], i))
 
-
         return [list(p) for p in record]
+
+# N: len(words)
+# K: max(len(word)) for word in words
+# TC: O((NK)^2)
+# SC: O(NK)
+# can be optimized by Manacher's algorithm
