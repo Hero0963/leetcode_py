@@ -1,7 +1,3 @@
-# N: unsolved_cnt
-# TC: O(9^N)
-# SC: O(N)
-
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
         """
@@ -20,7 +16,7 @@ class Solution:
             return True
 
         size = 9
-        candidates = "123456789"
+        candidates = {"1", "2", "3", "4", "5", "6", "7", "8", "9"}
 
         def solve(row: int, col: int) -> bool:
             if row == size:
@@ -44,3 +40,7 @@ class Solution:
 
         _ = solve(0, 0)
         return
+
+# N: unsolved_cnt
+# TC: O(9^N)
+# SC: O(N)

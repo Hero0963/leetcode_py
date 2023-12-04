@@ -4,9 +4,6 @@
 #         self.val = val
 #         self.next = next
 
-# N: number of nodes
-# TC: O(N)
-# SC: O(1)
 
 class Solution:
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
@@ -32,3 +29,7 @@ class Solution:
 
             n -= k
         return dummy.next
+
+# N: number of nodes
+# TC: O(N)
+# SC: O(1)
