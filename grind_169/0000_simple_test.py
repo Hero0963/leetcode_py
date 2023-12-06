@@ -1,4 +1,9 @@
-L = [1, 2, 3]
-L[10:] = [4]
+from sortedcontainers import SortedList
 
-print(L)
+a = [5, 3, 1]
+sl = SortedList()
+
+for x in a:
+    sl.add(x)
+
+print(sl)
